@@ -104,5 +104,5 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: git@github.com:diveinworld/diveinworld.github.io
+  repo: git@github.com:anyin233/anyin233.github.io
   branch: master
