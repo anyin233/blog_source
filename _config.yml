@@ -106,3 +106,9 @@ deploy:
   type: 'git'
   repo: git@github.com:anyin233/anyin233.github.io
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

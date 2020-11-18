@@ -12,6 +12,7 @@ before_install:
 install:
   - npm install hexo-cli -g
   - npm install
+  - npm install hexo-generator-searchdb --save
 
 script:
   - hexo g

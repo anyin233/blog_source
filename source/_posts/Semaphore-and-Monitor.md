@@ -24,6 +24,7 @@ tags: 操作系统
 
 借助信号量机制，我们可以解决很多的多进(线)程间同步的问题。接下来我们将会使用几个例子来进一步地了解信号量的作用。
 
+<!-- more -->
 ### 生产者-消费者问题
 生产者-消费者问题是一个非常著名的多线程间同步的问题，接下来我们将会围绕这个问题探讨信号量机制的意义。
 
@@ -126,8 +127,75 @@ fn provider(){
 
 这里我们就可以清楚地看到条件变量和信号量的区别，对于条件变量来说由于调用其的进(线)程已经在管程中，故其的```wait()```和```signal()```无需成对，且在条件变量执行完成```wait()```操作后进(线)程必定阻塞，但是对于信号量的```V()```操作则不一定会阻塞。且在条件变量执行```wait()```操作或```signal()```的时候已经默认获得了互斥锁。
 
-光谈概念感觉管程本身还是比较晦涩的，下面还是会用著名的生产者-消费者问题讨论管程
+光谈概念感觉管程本身还是比较晦涩的，下面还是会用著名的读者-写者问题讨论管程
 
-### 使用管程实现生产者-消费者问题
+### 使用管程实现读者-写者问题
 
-TODO:还没搞懂
+通过使用管程，我们可以将读者-写者问题包装为一个面向对象的类
+```rust
+struct Database{
+    lock: Lock,
+    AC: i32, //已经激活的读者
+    AP: i32, //已经激活的写者
+    WC: i32, //正在等待的读者
+    WP: i32, //正在等待的写者
+    buffer: i32,
+    Condition okToRead, okToWrite;
+}
+
+impl Database{
+    fn start_consume(&mut self){
+        self.lock.aquire();
+        if (WP + AP) > 0{ // 相当于还有写者处于激活状态的时候
+            WC++;
+            okToRead.wait(mut self.lock); // 将自己阻塞
+            WC--;
+        }
+        AC++;//此处为未阻塞或者被唤醒
+        self.lock.release();
+    }
+
+    fn end_consume(&self){
+        self.lock.aquire();
+        AC--;
+        if AC == 0 && WP > 0{
+            okToWrite.signal(); // 当激活的读者退出的时候唤醒阻塞在队列中的写者
+        }
+        self.lock.release();
+    }
+
+    fn start_produce(&mut self){
+        self.lock.aquire();
+        if (WC + AC) > 0{
+            WP++;
+            okToWrite.wait(mut self.lock); // 同样当任何读者在执行的时候将自身阻塞
+            WP--;
+        }
+        AP++; //此处为未阻塞或者被唤醒
+        self.lock.release();
+    }
+
+    fn end_produce(&self){
+        self.lock.aquire();
+        AP--;
+        if AP == 0 && WC > 0{
+            okToRead.signal(); // 当激活的写者退出的时候唤醒正在排队的读者线程
+        }
+        self.lock.release();
+    }
+
+    pub fn read(&mut self){
+        self.start_consume();
+        // do consume
+        self.end_consume();
+    }
+
+    pub fn write(&mut self){
+        self.start_produce();
+        // do produce
+        self.end_produce();
+    }
+}
+```
+
+这里我们使用了四个整形变量、一个锁和两个条件变量完成了对消费者-生产者的控制，我们可以看到对于读和写操作我们均使用两个函数来完成其的同步控制。
