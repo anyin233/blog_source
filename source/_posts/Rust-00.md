@@ -23,3 +23,11 @@ tags:  [Rust,程序语言]
 3. 主要的内容将会参考[《深入浅出Rust》](https://book.douban.com/subject/30312231/)和[《Rust编程之道》](https://book.douban.com/subject/30418895/)，也推荐大家可以去看看
 4. 一切的内容都是兴趣使然的
 5. 欢迎提issue
+
+# 关于如何安装Rust
+
+出门左转[Rust官网](https://www.rust-lang.org/)，右上角切换到中文，相信大家都看得懂的吧(笑)
+
+# 关于用什么IDE
+
+本人目前使用的是CLion配合Rust插件，之前也接触过vscode + rust(rls)插件和vscode + rust-analyzer这两种搭配，具体那种好用我也不好说，但是如果真的想要最完整的IDE体验的话本人更推荐使用CLion+Rust插件的组合，不过基于开源、美观(主要是美观)的原则，我更倾向于vscode + rust-analyzer这种搭配。
