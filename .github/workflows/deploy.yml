@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install Pandoc
+        run: |
+          curl -s -L https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-linux-amd64.tar.gz | tar xvzf - -C ${{ secrets.RUNNER_TOOL_CACHE }}/
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -26,7 +29,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: |
+          export PATH="$PATH:${{ RUNNER_TOOL_CACHE }}/pandoc-2.9.2/bin"
+          npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
