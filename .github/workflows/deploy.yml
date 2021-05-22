@@ -30,7 +30,7 @@ jobs:
         run: npm install
       - name: Build
         run: |
-          export PATH="$PATH:${{ RUNNER_TOOL_CACHE }}/pandoc-2.9.2/bin"
+          export PATH="$PATH:${{ secrets.RUNNER_TOOL_CACHE }}/pandoc-2.9.2/bin"
           npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
