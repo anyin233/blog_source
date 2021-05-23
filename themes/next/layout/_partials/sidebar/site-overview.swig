@@ -5,7 +5,7 @@
   {%- endif %}
   <p class="site-author-name" itemprop="name">{{ author }}</p>
   <div class="site-description" itemprop="description">{{ description }}</div>
-  <img src="https://travis-ci.org/anyin233/blog_source.svg?branch=blog-source" alt="Build Status" />
+  <img src="https://github.com/anyin233/blog_source/actions/workflows/deploy.yml/badge.svg" alt="Build Status" />
 </div>
 
 {%- if theme.site_state %}
