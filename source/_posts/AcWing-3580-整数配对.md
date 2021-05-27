@@ -1,7 +1,7 @@
 ---
 title: AcWing 3580.整数配对
 date: 2021-05-27 19:06:03
-tags:
+tags: [AcWing,算法学习]
 ---
 
 ## 题目详情
