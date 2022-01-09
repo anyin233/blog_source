@@ -1,7 +1,7 @@
 ---
 title: AcWing 105. 七夕祭
 date: 2022-01-09 15:44:08
-tags: [算法学习,AcWing,状态压缩DP,DP]
+tags: [算法学习,AcWing,排序]
 
 ---
 

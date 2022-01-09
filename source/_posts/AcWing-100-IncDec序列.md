@@ -1,7 +1,7 @@
 ---
 title: AcWing 100.IncDec序列
 date: 2022-01-07 17:41:42
-tags: [算法学习,AcWing,状态压缩DP,DP]
+tags: [算法学习,AcWing,贪心,差分]
 
 ---
 
