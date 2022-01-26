@@ -40,4 +40,4 @@ jobs:
           external_repository: anyin233/anyin233.github.io
           publish_branch: master  # deploying branch
       - name: notify
-        run: curl https://api.day.app/${{ secrets.BARK_TOKEN }}/Git Pages Deploy/Deploy Finished
+        run: curl -s -0 /dev/null "https://api.day.app/${{ secrets.BARK_TOKEN }}/Git Pages Deploy/Deploy Finished"
