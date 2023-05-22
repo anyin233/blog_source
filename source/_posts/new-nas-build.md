@@ -18,7 +18,7 @@ tags:
 - 功率低于3200w
 - 可用容量至少有个8T
 
-<!---more--->
+<!--more-->
 
 ## 硬件选择
 
@@ -237,29 +237,29 @@ lspci
 
 将下载好的iso文件上传到PVE中，创建一个虚拟机，
 
-<img src="./new-nas-build.assets/image-20230221113151020.png" alt="image-20230221113151020" style="zoom:50%;" />
+<img src="https://i.imgur.com/MiQQ4fT.png" alt="image-20230221113151020" style="zoom:50%;" />
 
 其中`VM ID`和`Node`保持默认即可，`Name`选择一个便于自己识别的名字，
 
-<img src="./new-nas-build.assets/image-20230221113240119.png" alt="image-20230221113240119" style="zoom:50%;" />
+<img src="https://i.imgur.com/6Ojdmos.png" alt="image-20230221113240119" style="zoom:50%;" />
 
 ISO image选择刚刚上传的iso文件，剩余保持默认，System部分也可以保持默认，到Disk页面设备类型选择SATA，大小32GB左右即可
 
-<img src="./new-nas-build.assets/image-20230221113351589.png" alt="image-20230221113351589" style="zoom:50%;" />
+<img src="https://i.imgur.com/wwL06B7.png" alt="image-20230221113351589" style="zoom:50%;" />
 
 核心数量根据你的设备性能分配1～4个核心均可，在这里我选择2个核心
 
-<img src="./new-nas-build.assets/image-20230221113443271.png" alt="image-20230221113443271" style="zoom:50%;" />
+<img src="https://i.imgur.com/tuGHwL5.png" alt="image-20230221113443271" style="zoom:50%;" />
 
 内存建议多给TrueNAS一点，毕竟是吃内存大户，我分配了8GB
 
-<img src="./new-nas-build.assets/image-20230221113524408.png" alt="image-20230221113524408" style="zoom:50%;" />
+<img src="https://i.imgur.com/NDog3Wo.png" alt="image-20230221113524408" style="zoom:50%;" />
 
 网络部分保持默认，创建即可。
 
 创建完毕后不要急着启动，定位到你的虚拟机的Hardware页面，点击Add
 
-<img src="./new-nas-build.assets/image-20230221113625096.png" alt="image-20230221113625096" style="zoom:50%;" />
+<img src="https://i.imgur.com/73S5kvp.png" alt="image-20230221113625096" style="zoom:50%;" />
 
 选择PCI Device，在其中选中你的核显，并勾选`All Functions`。
 

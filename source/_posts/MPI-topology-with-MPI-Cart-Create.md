@@ -6,6 +6,8 @@ tags: MPI,并行编程
 
 在使用MPI的过程中可能会涉及到一些针对特定的拓扑关系的模拟情况，如**FOX算法求矩阵乘积**。此时需要涉及到如何简便地模拟出特定的方阵以及元素之间的关系。MPI提供了一套简便地API可以快速地创建出携带所需要的拓扑关系的`MPI_Comm`。
 
+<!--more-->
+
 # MPI Process Topology Functions
 
 该系列的函数即是MPI中用于处理相关的拓扑关系的相关工具。常用的包括了`MPI_Cart_create`等方法，具体的API可以参考[MSDN](https://learn.microsoft.com/en-us/message-passing-interface/mpi-process-topology-functions)。其中较为常用的包括`MPI_Cart_create`、`MPI_Dims_create`等方法。
