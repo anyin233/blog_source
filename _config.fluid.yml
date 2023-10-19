@@ -138,14 +138,14 @@ dark_mode:
 color:
   # body 背景色
   # Color of body background
-  body_bg_color: "#eee"
+  body_bg_color: "#eceeec"
   # 暗色模式下的 body 背景色，下同
   # Color in dark mode, the same below
   body_bg_color_dark: "#181c27"
 
   # 顶部菜单背景色
   # Color of navigation bar background
-  navbar_bg_color: "#2f4154"
+  navbar_bg_color: "#cacacd"
   navbar_bg_color_dark: "#1f3144"
 
   # 顶部菜单字体色
@@ -170,7 +170,7 @@ color:
 
   # 主面板背景色
   # Color of main board
-  board_color: "#fff"
+  board_color: "#fefefe"
   board_color_dark: "#252d38"
 
   # 文章正文字体色
@@ -346,7 +346,7 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -420,9 +420,9 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+  <p> Powered by <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>, <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>. Slogan from <a href="https://developer.hitokoto.cn/" target="_blank" rel="nofollow noopener"><span>Hitokoto 一言</span></a>. </p>
+  <p> Nothing bad is possible. </p>
+  
   '
 
   # 展示网站的 PV、UV 统计数
@@ -995,23 +995,17 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /images/header.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   # 友链的成员项
   # Member item of page
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      avatar: "/img/favicon.png"
-    }
-    - {
-      title: "Fluid Docs",
-      intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      avatar: "/img/favicon.png"
+      title: "云越泽",
+      intro: "云海仙泽 Hexo",
+      link: "https://blog.int8.in",
+      avatar: "https://yunyueze-1256877396.file.myqcloud.com/img/favour.png"
     }
     - {
       title: "Fluid Repo",
