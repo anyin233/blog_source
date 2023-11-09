@@ -1,5 +1,5 @@
 ---
-title: 高性能的异构并行框架Kokkos: 0
+title: "高性能的异构并行框架Kokkos: 0"
 date: 2023-11-09 14:07:11
 tags: [Kokkos,HPC]
 category: [Tech,HPC,Kokkos]
