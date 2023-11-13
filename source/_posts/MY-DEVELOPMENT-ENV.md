@@ -18,3 +18,29 @@ I always forget some softwares' name which is pretty helpful to me, so writting 
 - The tools I have used in my daily life.
 - ...
 
+# ENV LIST
+
+## Fonts
+
+- [MonaSpace Neon](https://monaspace.githubnext.com/)
+
+- Monaco (comes with MacOS)
+- FiraMono Nerd Font (provides Nerd Font for iTerm)
+
+## IDEs
+
+-  VSCode
+  - clangd
+  - vim plugin
+  - material theme
+- lazyvim
+
+## cli
+
+- iTerm2
+- oh-my-zsh
+  - powerlevel10k
+- fzf
+- ripgrep
+- homebrew
+- tmux
