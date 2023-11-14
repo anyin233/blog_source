@@ -81,8 +81,29 @@ In this procedure, we declare the `Space` of each variable and `RangePolicy`, wh
 
 We use `Thread` backend as example.
 
+### Initialize
+
 First of all, Kokkos will initialize thread pool before kernel running by invoking `initialize_space_factory`. Initialize code locates at `Kokkos_ExecSpaceManager.hpp`, this will invoke `ExecutionSpace::impl_initialize()`, while `ExecutionSpace` is the template parameter.
 
-`initialize_space_factory` will be invoked in `Kokkos_<Runtime>Exec` automatically, after serval function calls, the actual useful function is `::Impl::<Runtime>Exec::initialize()`
+`initialize_space_factory` will be invoked in `Kokkos_<Runtime>Exec` automatically, after serval function calls, the actual useful function is `::Impl::<Runtime>Exec::initialize()`.
 
-# TODO
+In `initialize()`, program will first check the basic information of current machine if `hwloc` is available. If `hwloc` is unavilable, thread count will be set to 1. Then program will initialize all threads by dispatching a noop task for each thread and spawn it. After thread received noop, thread status will be set to `ThreadsExec::Inactive` and wait next task.
+
+### Task Dispatch
+
+We use `parallel_for` as an example.
+
+When we invoke `parallel_for`, it will use a class named `ParallelFor` to handle the execution. The entrance of parllel execution is `ParallelFor::execute()`, it will pass member function `exec` into execution environment `ThreadExec::start`.
+
+Inside `ThreadExec::start()`, it will set current function to `exec` and notify threads by switching their state into `ThreadsExec::Active`, then threads will execute functions automatically.
+
+To control the range each thread will execute, Kokkos provides two schedule type: static one and dynamic one, both of them share a same function name `exec_schedule`.
+
+For static one, it will compute a work range and do a serial loop on it. After execute the functor, each thread will do `fan_in` operate and turn into `Inactive` status.
+
+For dynamic one, it will leverage a work stealing algorithm to schedule work load. Each iteration will take `chunk_size()` tasks to execute, when this iteration has done, it will get next chunk's index and continue to execute.
+
+
+
+
+
