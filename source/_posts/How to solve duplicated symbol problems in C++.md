@@ -1,3 +1,12 @@
+---
+title: How to solve duplicated symbol problems in C++
+date: 2024-01-19 11:52:00
+tags: [C++,compiler]
+category: [Tech,Programming Language,C++]
+---
+
+
+
 # Problem
 
 When compiling a program which sources sharing a same headers, for example, SWYAKL, there is possibility that error of duplicated symbol will appear during link stage.
